@@ -1,0 +1,100 @@
+<% layout('partials/boilerplate') %>
+
+<div class="container">
+  <div class="row">
+	  <div class="col-md-12">
+
+<!-- restaurants table -->
+          <h1 class="primary-color"><i class="fas fa-bug"></i>Restaurant Violation Information</h1>
+		  <table class="table primary-color">
+		  <thead>
+		    <tr>
+              <th scope="col">Restaurant Property</th>
+		      <th scope="col">Value</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+			<% restaurant.forEach(function(dataObject){ %>
+            <tr>
+                <td>Image</td>
+                <td><img height="300px" width="400px" src="<%= dataObject.imageurl %>"></td>
+            </tr>
+
+		    <tr>
+              <td>Name</td>
+		      <td><%= dataObject.name %></td>
+		    </tr>
+            <tr>
+              <td>Category</td>
+
+		      <td><%= dataObject.cat1 %></td>
+		    </tr>
+            <tr>
+              <td>Rating</td>
+		      <td><%= dataObject.rating %></td>
+		    </tr>
+            <tr>
+            <td>Latitude</td>
+
+		      <td><%= dataObject.lat %></td>
+		    </tr>
+            <tr>
+                <td>Longitude</td>
+
+		      <td><%= dataObject.lon %></td>
+		    </tr>
+            <tr>
+                <td>Address</td>
+
+		      <td><%= dataObject.address1 %></td>
+		    </tr>
+            <tr>
+                <td>City, Zip</td>
+
+		      <td><%= dataObject.city %>, <%= dataObject.zip %></td>
+		    </tr>
+            <tr>
+                <td>Country, State</td>
+
+		      <td><%= dataObject.country %>, <%= dataObject.state %></td>
+		    </tr>
+            <tr>
+                <td>Website</td>
+                <td><a href="<%= dataObject.url %>">Link</a></td>
+            </tr>
+			<% }); %>
+
+
+
+
+		  </tbody>
+		</table>
+
+        <!-- violations info -->
+
+        <h1 class="primary-color">Violations </h1>
+            <table class="table primary-color">
+                <thead>
+                    <tr>
+                        <td>Inspection Date</td>
+                        <td>Violation Code</td>
+                        <td>Violation Description</td>
+                        <td>Critical/Not Critical</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% violations.forEach(function(dataObject){ %>
+
+                    <tr>
+                        <td><%= dataObject.inspectiondate %></td>
+                        <td><%= dataObject.violationcode %></td>
+                        <td><%= dataObject.violationdescription %></td>
+                        <td><%= dataObject.criticalflag %></td>
+                    </tr>
+                    <% }); %>
+
+                <tbody>
+            </table>
+        </div>
+    </div>
+</div>

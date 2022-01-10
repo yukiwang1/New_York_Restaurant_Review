@@ -1,0 +1,59 @@
+<!-- {
+"zip": 10003,
+"median_income": 118161,
+"num_restaurants": 632,
+"num_historical_violations": 8417
+}, -->
+
+<% layout('partials/boilerplate') %>
+
+<div class="container" style="margin: 50px 0 50px 0;">
+	<div class="row" >
+		<div class="col-md-5">
+
+			<h1 class="secondary-color style-font" style="padding: 50px 0px 25px;font-size:48px;">
+				<i class="fas fa-compass"></i>RESTAURANT BY ZIP CODE
+			</h1>
+		</div>
+		<div class="col-md-7">
+			<image height="300px" width="80%"src="https://cdn.shopify.com/s/files/1/1728/6405/products/nnycmap_1280x1280.jpg?v=1610594940">
+		</div>
+	<div>
+</div>
+<div class="container">
+  <div class="row">
+	  <input type="text" id="myInput" onkeyup="search()" placeholder="Search for zip.." title="Type in a name">
+
+	  <div class="col-md-12">
+		  <table id="myTable" class="table primary-color clickable-table">
+		  <thead>
+		    <tr class="tableheader">
+              <th scope="col">Zip</th>
+		      <th scope="col">Median Income</th>
+		      <th scope="col">Number of Restaurants</th>
+		      <th scope="col">Number of historical violations</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+			<% data.forEach(function(dataObject){ %>
+
+
+		    <tr onclick="window.location='/zips/<%= dataObject.zip%>';">
+		      <td><%= dataObject.zip %></td>
+		      <td><%= dataObject.median_income %></td>
+		      <td><%= dataObject.num_restaurants %></td>
+              <td><%= dataObject.num_historical_violations %></td>
+		    </tr>
+			<% }); %>
+
+		  </tbody>
+		</table>
+
+
+      </div>
+	  <!-- <div class="col-md-4 secondary-color">
+		  <h2>Summary</h2>
+
+	  </div> -->
+  </div>
+</div>

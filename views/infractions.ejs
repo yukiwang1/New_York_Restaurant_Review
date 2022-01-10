@@ -1,0 +1,56 @@
+<% layout('partials/boilerplate') %>
+
+
+<div class="container" style="margin: 50px 0 50px 0;">
+	<div class="row" >
+
+		<div class="col-md-5">
+
+
+			<h1 class="secondary-color style-font" style="padding: 50px 0 25px; font-size:48px;">
+				<i class="fas fa-ban"></i>RESTAURANT INFRACTIONS
+			</h1>
+		</div>
+		<div class="col-md-7">
+			<image height="300px" width="80%"src="https://images.squarespace-cdn.com/content/v1/56c2a124859fd0898f832ec9/1556713062928-M1BKE9DXI5PXOMVK7X9I/7+new+NYC+Restaurants.jpg">
+		</div>
+	<div>
+</div>
+<div class="container">
+  <div class="row">
+	  <input type="text" id="myInput" onkeyup="search()" placeholder="Search for violation code.." title="Type in a name">
+
+	  <div class="col-md-12">
+		  <table id="myTable" class="table primary-color clickable-table">
+		  <thead>
+		    <tr class="tableheader">
+              <th scope="col">Violation Code</th>
+		      <th scope="col">Violation Description</th>
+		      <th scope="col">Critical Flag</th>
+		      <th scope="col">Number of violations in NY</th>
+		    </tr>
+		  </thead>
+		  <tbody >
+			<% data.forEach(function(dataObject){ %>
+
+
+		    <tr onclick="window.location='/infractions/<%= dataObject.violationcode%>';">
+		      <td><%= dataObject.violationcode %></td>
+		      <td><%= dataObject.violationdescription %></td>
+		      <td><%= dataObject.criticalflag %></td>
+              <td><%= dataObject.num_violations_in_NY %></td>
+		    </tr>
+			<% }); %>
+
+		  </tbody>
+		</table>
+
+
+      </div>
+	  <!-- <div class="col-md-4 secondary-color">
+		  <h2>Summary</h2>
+
+
+	  </div> -->
+  </div>
+</div>

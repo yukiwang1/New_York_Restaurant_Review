@@ -1,0 +1,65 @@
+<% layout('partials/boilerplate') %>
+<div class="container" style="margin: 50px 0 50px 0;">
+	<div class="row" >
+		<div class="col-md-5">
+			<h1 class="secondary-color style-font" style="padding: 50px 0px 25px; font-size:48px;">
+				<i class="fas fa-bug"></i>RESTAURANTS
+
+			</h1>
+		</div>
+		<div class="col-md-7">
+			<image height="300px" width="80%"src="https://photos.mandarinoriental.com/is/image/MandarinOriental/new-york-2020-fine-dining-lounge?wid=1560&hei=820&fmt=jpeg&qlt=75,0&op_sharpen=0&resMode=sharp2&op_usm=0.8,0.8,4,0&iccEmbed=0&printRes=72&fit=crop&qlt=45,0">
+		</div>
+	<div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+	  <input type="text" id="myInput" onkeyup="search()" placeholder="Search for names.." title="Type in a name">
+
+	  <div class="col-md-8">
+
+		  <table id="myTable" class="table primary-color clickable-table">
+		  <thead>
+		    <tr class="tableheader">
+		      <th scope="col">Name</th>
+		      <th scope="col">Boro</th>
+		      <th scope="col">Number of violations</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+			<% data.forEach(function(dataObject){ %>
+
+		    <tr onclick="window.location='/restaurants/<%= dataObject.doh_id%>';">
+		      <td><%= dataObject.name %></td>
+		      <td><%= dataObject.boro %></td>
+		      <td><%= dataObject.num_violations %></td>
+		    </tr>
+			<% }); %>
+
+		  </tbody>
+		</table>
+
+
+      </div>
+	  <div class="col-md-4 secondary-color">
+		  <h2>Summary</h2>
+		  Total Violations: <%= processedData.total %>
+		  </br>
+		  Violation count by area:
+  		  </br>
+
+		  Manhattan:<%= processedData.totalByArea['Manhattan'] %>
+	      </br>
+
+		  Brooklyn:<%= processedData.totalByArea['Brooklyn'] %>		  </br>
+
+		  Queens:<%= processedData.totalByArea['Queens'] %>		  </br>
+
+		  Bronx:<%= processedData.totalByArea['Bronx'] %>		  </br>
+
+		  Staten Island:<%= processedData.totalByArea['Staten Island'] %>
+	  </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<% layout('partials/boilerplate') %>
+
+
+<div class="container" style="margin: 50px 0 50px 0;">
+	<div class="row" >
+		<div class="col-md-5">
+
+
+			<h1 class="secondary-color style-font" style="padding: 50px 0 25px; font-size:48px;">
+				<i class="fas fa-ban"></i>RESTAURANT INFRACTION <%= infractioncode %>
+			</h1>
+		</div>
+		<div class="col-md-7">
+			<image height="300px" width="80%"src="https://images.squarespace-cdn.com/content/v1/56c2a124859fd0898f832ec9/1556713062928-M1BKE9DXI5PXOMVK7X9I/7+new+NYC+Restaurants.jpg">
+		</div>
+	<div>
+</div>
+<div class="container">
+  <div class="row">
+	  <div class="col-md-8">
+		  <table class="table primary-color">
+		  <thead>
+		    <tr>
+              <th scope="col">Violation Code</th>
+		      <th scope="col">Name</th>
+              <th scope="col">Inspection Date</th>
+              <th scope="col">Address</th>
+		      <th scope="col">City</th>
+		      <th scope="col">Zip Code</th>
+              <th scope="col">Website</th>
+		    </tr>
+		  </thead>
+		  <tbody >
+			<% data.forEach(function(dataObject){ %>
+
+
+		    <tr>
+		      <td><%= dataObject.violationcode %></td>
+		      <td><%= dataObject.name %></td>
+		      <td><%= dataObject.inspectiondate %></td>
+              <td><%= dataObject.address1 %></td>
+              <td><%= dataObject.city %></td>
+              <td><%= dataObject.zip %></td>
+              <td><a href="<%= dataObject.url %>">Link</a></td>
+		    </tr>
+			<% }); %>
+
+		  </tbody>
+		</table>
+
+
+      </div>
+	  <div class="col-md-4 secondary-color">
+		  <h2>Summary</h2>
+
+	  </div>
+  </div>
+</div>
