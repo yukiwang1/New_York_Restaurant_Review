@@ -32,7 +32,7 @@ The NY Median Income dataset contains data on the median household income for al
 ### Entity Relationship Diagram
 <p align="center">
   <kbd>
-    <img src="MY_York_Restaurant_Review/ERM.png" alt="ERM">
+    <img src="ERM.png" alt="ERM">
   </kbd>
 </p>
 
